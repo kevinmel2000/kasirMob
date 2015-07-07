@@ -21,15 +21,26 @@ angular.module('starter.controllers', [])
 .controller('GetCtrl', function($scope, $http, $stateParams, $ionicHistory){
   $http.get('http://localhost/github/myigniter/index.php/api/user/id/' + $stateParams.getId).
     success(function(user){
-      $scope.user = user;
+      $scope.user.nama = user.name;
+      $scope.user.email = user.email;
     });
 
-  $scope.update = function(id){
-    $ionicHistory.goBack();
+  $scope.user = function(){
+    var putData = {
+      id: $stateParams.getId,
+      name: $scope.user.nama,
+      email: $scope.user.email
+    };
+
+    $http.put('http://localhost/github/myigniter/index.php/api/user/id/' + $stateParams.getId, putData).
+      success(function(data) {
+        console.log(data);
+      });
+    console.log($scope.user.nama);
   }
 
-  $scope.delete = function(id){
-    $http.delete('http://localhost/github/myigniter/index.php/api/user/id/' + id).
+  $scope.delete = function(){
+    $http.delete('http://localhost/github/myigniter/index.php/api/user/id/' + $stateParams.getId).
       success(function(data){
         console.log(data);
         $ionicHistory.goBack();

@@ -1,22 +1,23 @@
 <ion-view view-title="Get Detail">
   <ion-content class="padding">
 
-    <div class="card">
-      <div class="item item-divider">
-        {{user.name}}
-      </div>
-      <div class="item item-text-wrap">
-    		<p>
-	      	{{user.email}}
-      	</p>
-        <button class="button button-small button-calm" ng-click="update(user.id_api)">
-          UPDATE
-        </button>
-        <button class="button button-small button-assertive" ng-click="delete(user.id_api)">
-          DELETE
-        </button>
-      </div>
+
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Name</span>
+        <input type="text" placeholder="Name" ng-model="user.nama">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email</span>
+        <input type="text" placeholder="Email" ng-model="user.email">
+      </label>
     </div>
+    <button class="button button-full button-positive" ng-click="user()">
+      UPDATE
+    </button>        
+    <button class="button button-full button-assertive" ng-click="delete(user.id_api)">
+      DELETE
+    </button>
 
   </ion-content>
 </ion-view>
