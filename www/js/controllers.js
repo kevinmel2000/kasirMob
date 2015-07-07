@@ -18,11 +18,24 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('GetCtrl', function($scope, $http, $stateParams){
+.controller('GetCtrl', function($scope, $http, $stateParams, $ionicHistory){
   $http.get('http://localhost/github/myigniter/index.php/api/user/id/' + $stateParams.getId).
     success(function(user){
       $scope.user = user;
-    });  
+    });
+
+  $scope.update = function(id){
+    $ionicHistory.goBack();
+  }
+
+  $scope.delete = function(id){
+    $http.delete('http://localhost/github/myigniter/index.php/api/user/id/' + id).
+      success(function(data){
+        console.log(data);
+        $ionicHistory.goBack();
+      });
+  }
+
 }) 
 
 .controller('PostCtrl', function($scope, $http){

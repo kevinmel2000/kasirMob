@@ -6,9 +6,15 @@
         {{user.name}}
       </div>
       <div class="item item-text-wrap">
-		<p>
+    		<p>
 	      	{{user.email}}
       	</p>
+        <button class="button button-small button-calm" ng-click="update(user.id_api)">
+          UPDATE
+        </button>
+        <button class="button button-small button-assertive" ng-click="delete(user.id_api)">
+          DELETE
+        </button>
       </div>
     </div>
 
