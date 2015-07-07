@@ -4,8 +4,8 @@ angular.module('starter.controllers', [])
 
 .controller('GetAllCtrl', function($scope, $http){
   function getAll(){
-    $http.get('http://localhost/github/myigniter/index.php/api/user')
-      .success(function(user){
+    $http.get('http://localhost/github/myigniter/index.php/api/user').
+      success(function(user){
         $scope.users = user;
         $scope.$broadcast('scroll.refreshComplete');
       });
@@ -19,14 +19,27 @@ angular.module('starter.controllers', [])
 })
 
 .controller('GetCtrl', function($scope, $http, $stateParams){
-  $http.get('http://localhost/github/myigniter/index.php/api/user/id/' + $stateParams.getId)
-    .success(function(user){
+  $http.get('http://localhost/github/myigniter/index.php/api/user/id/' + $stateParams.getId).
+    success(function(user){
       $scope.user = user;
     });  
 }) 
 
-.controller('PostCtrl', function($scope){
-  
+.controller('PostCtrl', function($scope, $http){
+  $scope.post = function() {
+    var postData = {
+      name: $scope.post.nama,
+      email: $scope.post.email
+    };
+
+    $http.post('http://localhost/github/myigniter/index.php/api/user', postData).
+      success(function(data) {
+        console.log(data);
+      });
+
+    $scope.post.nama = '';
+    $scope.post.email = '';
+  };
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

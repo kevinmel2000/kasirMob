@@ -1,7 +1,17 @@
 <ion-view view-title="Post">
   <ion-content class="padding">
 
-    <h1>This Is Page Post</h1>
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="Name" ng-model="post.nama">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Email" ng-model="post.email">
+      </label>
+      <button class="button button-full button-positive" ng-click="post()">
+      Save
+      </button>
+    </div>
 
   </ion-content>
 </ion-view>
