@@ -30,7 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: "/tab",
     abstract: true,
     templateUrl: "templates/tabs.html"
@@ -48,31 +48,32 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.getAll', {
+      url: '/getAll',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-getAll': {
+          templateUrl: 'templates/tab-getAll.html',
+          controller: 'GetAllCtrl'
         }
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.get', {
+    url: '/getAll/:getId',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-getAll': {
+        templateUrl: 'templates/get-detail.html',
+        controller: 'GetCtrl'
+      }
+    }
+  })
+
+  .state('tab.post', {
+    url: '/post',
+    views: {
+      'tab-post': {
+        templateUrl: 'templates/tab-post.html',
+        controller: 'PostCtrl'
       }
     }
   });

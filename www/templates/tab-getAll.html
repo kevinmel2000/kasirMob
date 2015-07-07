@@ -1,0 +1,15 @@
+<ion-view view-title="Get">
+  <ion-content>
+  	<ion-refresher
+      pulling-text="Tarik untuk refresh..."
+      on-refresh="refreshGet()">
+    </ion-refresher>
+
+    <div class="list">
+      <a class="item" ng-repeat="user in users" href="#/tab/getAll/{{user.id_api}}">
+        {{user.name}}
+      </a>
+    </div>
+
+  </ion-content>
+</ion-view>
