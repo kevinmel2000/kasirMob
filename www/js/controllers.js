@@ -1,4 +1,4 @@
-var serverUrl = 'http://localhost/github/myigniter/index.php/api';
+var serverUrl = 'http://myigniter.esy.es/index.php/api';
 
 angular.module('starter.controllers', [])
 
