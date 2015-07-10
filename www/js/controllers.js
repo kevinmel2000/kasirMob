@@ -1,4 +1,5 @@
-var serverUrl = 'http://myigniter.esy.es/index.php/api';
+var serverUrl = 'http://localhost/github/myigniter/index.php/api';
+//var serverUrl = 'http://myigniter.esy.es/index.php/api';
 
 angular.module('starter.controllers', [])
 
@@ -45,6 +46,7 @@ angular.module('starter.controllers', [])
     success(function(user){
       $scope.user.nama = user.name;
       $scope.user.email = user.email;
+      console.log(user.email);
     });
 
   $scope.user = function(){

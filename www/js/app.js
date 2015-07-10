@@ -30,55 +30,53 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-  .state('tab', {
-    url: "/tab",
+  .state('app', {
+    url: "/app",
     abstract: true,
-    templateUrl: "templates/tabs.html"
+    templateUrl: "templates/menu.html"
   })
 
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
+  .state('app.dash', {
     url: '/dash',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
+      'menuContent': {
+        templateUrl: 'templates/app-dash.html',
         controller: 'DashCtrl'
       }
     }
   })
 
-  .state('tab.getAll', {
+  .state('app.getAll', {
       url: '/getAll',
       views: {
-        'tab-getAll': {
-          templateUrl: 'templates/tab-getAll.html',
+        'menuContent': {
+          templateUrl: 'templates/app-getAll.html',
           controller: 'GetAllCtrl'
         }
       }
     })
 
-  .state('tab.get', {
+  .state('app.get', {
     url: '/getAll/:getId',
     views: {
-      'tab-getAll': {
-        templateUrl: 'templates/get-detail.html',
+      'menuContent': {
+        templateUrl: 'templates/app-getAll-id.html',
         controller: 'GetCtrl'
       }
     }
   })
 
-  .state('tab.post', {
+  .state('app.post', {
     url: '/post',
     views: {
-      'tab-post': {
-        templateUrl: 'templates/tab-post.html',
+      'menuContent': {
+        templateUrl: 'templates/app-post.html',
         controller: 'PostCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/app/dash');
 
 });
