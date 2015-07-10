@@ -5,12 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ngCordova','ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
+    // for form inputs)    
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
@@ -18,6 +18,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
+
+    //$cordovaPlugin.someFunction().then(success, error);
   });
 })
 
@@ -46,6 +48,38 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  //Local Storage
+  .state('app.getLocal', {
+      url: '/getLocal',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/app-getAll.html',
+          controller: 'GetLocalCtrl'
+        }
+      }
+    })
+
+  .state('app.getLocalDetail', {
+    url: '/getLocal/:getId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/app-getAll-id.html',
+        controller: 'GetLocalDetailCtrl'
+      }
+    }
+  })
+
+  .state('app.postLocal', {
+    url: '/postLocal',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/app-post.html',
+        controller: 'PostLocalCtrl'
+      }
+    }
+  })
+
+  //HTTP
   .state('app.getAll', {
       url: '/getAll',
       views: {

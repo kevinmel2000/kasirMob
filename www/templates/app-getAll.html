@@ -5,11 +5,11 @@
       on-refresh="refreshGet()">
     </ion-refresher>
 
-    <a href="#/app/post" class="button button-full button-positive">
-      Add User
+    <a href="#/app/{{linkPost}}" class="button button-full button-positive">
+      Add User {{users.name}}
     </a>
     <div class="list">
-      <a class="item" ng-repeat="user in users" href="#/app/getAll/{{user.id_api}}">
+      <a class="item" ng-repeat="user in users" href="#/app/{{linkDetail}}/{{user.id_api}}">
         {{user.name}}
       </a>
     </div>

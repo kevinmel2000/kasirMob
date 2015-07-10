@@ -1,10 +1,11 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
     <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
+      <div class="item item-divider">Local Storage</div>
       <div class="item item-body">
         <div>
-          There is a fire in <b>sector 3</b>
+          {{local}}
+          <p ng-repeat="data in array">{{data}}</p>
         </div>
       </div>
     </div>
