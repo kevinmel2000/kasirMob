@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ngCordova','ionic', 'starter.controllers'])
+angular.module('starter', ['ngCordova', 'ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -44,37 +44,6 @@ angular.module('starter', ['ngCordova','ionic', 'starter.controllers'])
       'menuContent': {
         templateUrl: 'templates/app-dash.html',
         controller: 'DashCtrl'
-      }
-    }
-  })
-
-  //Local Storage
-  .state('app.getLocal', {
-      url: '/getLocal',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/app-getAll.html',
-          controller: 'GetLocalCtrl'
-        }
-      }
-    })
-
-  .state('app.getLocalDetail', {
-    url: '/getLocal/:getId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/app-getAll-id.html',
-        controller: 'GetLocalDetailCtrl'
-      }
-    }
-  })
-
-  .state('app.postLocal', {
-    url: '/postLocal',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/app-post.html',
-        controller: 'PostLocalCtrl'
       }
     }
   })

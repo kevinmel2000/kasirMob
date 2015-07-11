@@ -9,11 +9,11 @@ angular.module('starter.controllers', [])
     set: function(key, value) {
       $window.localStorage[key] = value;
     },
-    get: function(key, defaultValue) {
-      return $window.localStorage[key] || defaultValue;
-    },
     setObject: function(key, value) {
       $window.localStorage[key] = JSON.stringify(value);
+    },
+    get: function(key, defaultValue) {
+      return $window.localStorage[key] || defaultValue;
     },
     getObject: function(key) {
       return JSON.parse($window.localStorage[key] || '{}');
@@ -25,62 +25,28 @@ angular.module('starter.controllers', [])
       object = JSON.parse($window.localStorage[key] || '{}');
       object.splice(object.indexOf(index), 1);
       $window.localStorage[key] = JSON.stringify(object);      
+    },
+    clear: function(clear) {
+      $window.localStorage.clear();
     }
   };
 })
 
 .controller('DashCtrl', function($scope, $localstorage) {
-  // $localstorage.set('name', 'aaaaa');
-  // $localstorage.delete('name');
+  // Local Storage
+
+  // $localstorage.set('name', 'jhon');
   // console.log($localstorage.get('name'));
+  // $localstorage.delete('name');
+  
   // $localstorage.setObject('post', {
   //   name: 'Thoughts',
   //   text: 'Today was a good day'
   // });
-  // var post = $localstorage.getObject('post');
-  // console.log(post);
-  var data = [];
-  data.push('abc');
-  data.push('aa');
+  // console.log($localstorage.getObject('post'));
+  // $localstorage.deleteObject('post', '0');
 
-  // $localstorage.delete('post');
-  // $localstorage.setObject('post', data);
-
-  $scope.array = $localstorage.getObject('post');
-  $scope.local = $localstorage.getObject('post')[1];
-})
-
-// Local Storage
-.controller('GetLocalCtrl', function($scope, $localstorage){
-  function getLocal(){
-    $scope.users = $localstorage.getObject('users');  
-  }
-
-  getLocal();
-
-  $scope.refreshGet = function(){
-    getLocal();
-    $scope.$broadcast('scroll.refreshComplete');
-  };
-
-  $scope.linkPost = 'postLocal';
-  $scope.linkDetail = 'getLocal';
-})
-
-.controller('PostLocalCtrl', function($scope, $localstorage){
-  // var user = [
-  //   { id_api: 0, name: 'Jhon local', email: 'jhon@local' },
-  //   { id_api: 1, name: 'Joko local', email: 'joko@local' }
-  // ];
-
-  // $localstorage.setObject('users', user);
-    
-})
-
-.controller('GetLocalDetailCtrl', function($scope, $localstorage, $stateParams, $ionicHistory){
-  user = $localstorage.getObject('users')[$stateParams.getId];
-  $scope.user = {nama:user.name, email:user.email};
-
+  // $localstorage.clear();
 })
 
 //HTTP
@@ -98,9 +64,6 @@ angular.module('starter.controllers', [])
   $scope.refreshGet = function(){
     getAll();
   };
-
-  $scope.linkPost = 'post';
-  $scope.linkDetail = 'getAll';
 })
 
 
